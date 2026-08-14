@@ -1,267 +1,1522 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kareem Khalifa — Engineer & Front-End Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kareem Khalifa — Engineer & Front-End Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #09090f;
+        --surface: #111118;
+        --border: rgba(255, 255, 255, 0.07);
+        --blue: #3b82f6;
+        --cyan: #06b6d4;
+        --green: #22c55e;
+        --white: #f0f0f5;
+        --muted: #6b7280;
+        --dim: #9ca3af;
+        --card: #14141d;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+        background-size: 80px 80px;
+        pointer-events: none;
+        z-index: 0;
+      }
 
-<nav>
-  <div class="nav-logo">KK<span>.</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="mailto:karemkhalifaa@gmail.com" class="nav-cta">Hire me →</a>
-</nav>
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 20px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(9, 9, 15, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: -0.5px;
+      }
+      .nav-logo span {
+        color: var(--blue);
+      }
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        color: var(--dim);
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+      .nav-cta {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 9px 22px;
+        background: transparent;
+        border: 1px solid var(--blue);
+        color: var(--blue);
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .nav-cta:hover {
+        background: var(--blue);
+        color: white;
+      }
 
-<!-- HERO -->
-<section id="hero">
-  <div class="wrap">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-badge">Available for opportunities</div>
-        <h1 class="hero-name">Kareem<br><span class="line2">Khalifa</span></h1>
-        <p class="hero-sub">ECE Engineer &amp; Front-End Developer. I build production-grade Angular SPAs that solve real engineering problems.</p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn-primary">View Projects →</a>
-          <a href="https://github.com/kareem-khalifa-06" target="_blank" class="btn-ghost">⌥ GitHub</a>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:center;align-items:center;">
-        <div class="hero-card">
-          <div class="code-block">
-            <span class="c-cm">// kareem.config.ts</span><br><br>
-            <span class="c-kw">export const</span> <span class="c-var">developer</span> <span class="c-op">= {</span><br>
-            &nbsp;&nbsp;<span class="c-fn">name</span><span class="c-op">:</span> <span class="c-str">"Kareem Khalifa"</span><span class="c-op">,</span><br>
-            &nbsp;&nbsp;<span class="c-fn">stack</span><span class="c-op">: [</span><span class="c-str">"Angular 17"</span><span class="c-op">,</span><span class="c-str">"TypeScript"</span><span class="c-op">,</span><span class="c-str">"RxJS"</span><span class="c-op">],</span><br>
-            &nbsp;&nbsp;<span class="c-fn">certified</span><span class="c-op">:</span> <span class="c-str">"Rowad 2025 · 240h"</span><span class="c-op">,</span><br>
-            &nbsp;&nbsp;<span class="c-fn">background</span><span class="c-op">:</span> <span class="c-str">"ECE Engineer"</span><span class="c-op">,</span><br>
-            &nbsp;&nbsp;<span class="c-fn">status</span><span class="c-op">:</span> <span class="c-str">"open_to_work"</span><br>
-            <span class="c-op">};</span>
+      section {
+        position: relative;
+        z-index: 1;
+      }
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      /* HERO */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 100px;
+      }
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.25);
+        border-radius: 20px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--blue);
+        margin-bottom: 28px;
+      }
+      .hero-badge::before {
+        content: "◉";
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .hero-name {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: clamp(42px, 5vw, 68px);
+        line-height: 1.05;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+      }
+      .hero-name .line2 {
+        color: var(--blue);
+      }
+      .hero-sub {
+        font-size: 18px;
+        color: var(--dim);
+        max-width: 440px;
+        margin-bottom: 40px;
+      }
+      .hero-buttons {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        background: var(--blue);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+      }
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        background: transparent;
+        color: var(--dim);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-family: "DM Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .btn-ghost:hover {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .hero-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px;
+        width: 100%;
+        max-width: 380px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--blue), var(--cyan));
+      }
+      .code-block {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        line-height: 1.8;
+      }
+      .c-kw {
+        color: #818cf8;
+      }
+      .c-fn {
+        color: #34d399;
+      }
+      .c-str {
+        color: #f59e0b;
+      }
+      .c-cm {
+        color: #4b5563;
+        font-style: italic;
+      }
+      .c-var {
+        color: #93c5fd;
+      }
+      .c-op {
+        color: #e2e8f0;
+      }
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .stat-item {
+        text-align: center;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        border: 1px solid var(--border);
+      }
+      .stat-num {
+        font-family: "Syne", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--blue);
+      }
+      .stat-lbl {
+        font-size: 11px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 2px;
+      }
+
+      /* SECTION HEADERS */
+      .sec-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--blue);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .sec-title {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(32px, 4vw, 48px);
+        font-weight: 700;
+        letter-spacing: -1.5px;
+        margin-bottom: 16px;
+      }
+      .sec-sub {
+        color: var(--dim);
+        font-size: 17px;
+        max-width: 500px;
+      }
+
+      /* ABOUT */
+      #about {
+        padding: 120px 0;
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: start;
+        margin-top: 60px;
+      }
+      .about-text p {
+        color: var(--dim);
+        font-size: 16px;
+        margin-bottom: 18px;
+        line-height: 1.8;
+      }
+      .about-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+      .skill-chip {
+        padding: 7px 16px;
+        background: rgba(59, 130, 246, 0.08);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 20px;
+        font-size: 13px;
+        color: var(--dim);
+        font-family: "JetBrains Mono", monospace;
+        transition: all 0.2s;
+      }
+      .skill-chip:hover {
+        color: var(--blue);
+        border-color: var(--blue);
+      }
+      .about-right {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .info-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+      }
+      .info-card h4 {
+        font-family: "Syne", sans-serif;
+        font-size: 14px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+      }
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .info-row .key {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .info-row .val {
+        font-size: 14px;
+        color: var(--white);
+      }
+      .lang-bar {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+      .lang-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--muted);
+      }
+      .lang-dot.filled {
+        background: var(--blue);
+      }
+
+      /* PROJECTS */
+      #projects {
+        padding: 120px 0;
+        border-top: 1px solid var(--border);
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 60px;
+      }
+      .project-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .project-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(59, 130, 246, 0.3);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      }
+      .project-card:hover::before {
+        opacity: 1;
+      }
+      .project-card.p1::before {
+        background: linear-gradient(90deg, #0ea5e9, #2563eb);
+      }
+      .project-card.p2::before {
+        background: linear-gradient(90deg, #f97316, #dc2626);
+      }
+      .project-card.p3::before {
+        background: linear-gradient(90deg, #8b5cf6, #6366f1);
+      }
+      .proj-icon {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      .proj-status {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .status-live {
+        background: rgba(34, 197, 94, 0.12);
+        color: #4ade80;
+        border: 1px solid rgba(34, 197, 94, 0.2);
+      }
+      .status-build {
+        background: rgba(251, 146, 60, 0.12);
+        color: #fb923c;
+        border: 1px solid rgba(251, 146, 60, 0.2);
+      }
+      .proj-title {
+        font-family: "Syne", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+      }
+      .proj-desc {
+        font-size: 14px;
+        color: var(--dim);
+        line-height: 1.7;
+        margin-bottom: 24px;
+        flex: 1;
+      }
+      .proj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+      .proj-tag {
+        padding: 4px 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .proj-links {
+        display: flex;
+        gap: 12px;
+      }
+      .proj-link {
+        flex: 1;
+        text-align: center;
+        padding: 9px;
+        font-size: 13px;
+        font-weight: 500;
+        border-radius: 7px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .pl-code {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--dim);
+        border: 1px solid var(--border);
+      }
+      .pl-code:hover {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .pl-demo {
+        background: var(--blue);
+        color: white;
+      }
+      .pl-demo:hover {
+        background: #2563eb;
+      }
+
+      /* EXPERIENCE */
+      #experience {
+        padding: 120px 0;
+        border-top: 1px solid var(--border);
+      }
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 60px;
+      }
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 200px 1px 1fr;
+        gap: 0 32px;
+        padding-bottom: 48px;
+      }
+      .t-date {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        color: var(--muted);
+        padding-top: 4px;
+        text-align: right;
+      }
+      .t-line {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .t-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--blue);
+        flex-shrink: 0;
+        margin-top: 6px;
+      }
+      .t-track {
+        width: 1px;
+        flex: 1;
+        background: var(--border);
+        margin-top: 8px;
+      }
+      .t-body {
+        padding-bottom: 8px;
+      }
+      .t-company {
+        font-family: "Syne", sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .t-role {
+        font-size: 14px;
+        color: var(--blue);
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
+      .t-sub {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+      .t-desc {
+        font-size: 14px;
+        color: var(--dim);
+        line-height: 1.8;
+      }
+      .t-desc li {
+        margin-bottom: 6px;
+        list-style: none;
+        padding-left: 16px;
+        position: relative;
+      }
+      .t-desc li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--muted);
+      }
+
+      /* CERTIFICATIONS — new section */
+      #certifications {
+        padding: 80px 0;
+        border-top: 1px solid var(--border);
+      }
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 60px;
+      }
+      .cert-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+      .cert-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(59, 130, 246, 0.4);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+      .cert-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--blue), var(--cyan));
+      }
+      .cert-logo {
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+      .cert-issuer {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 12px;
+        color: var(--blue);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .cert-name {
+        font-family: "Syne", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .cert-meta {
+        font-size: 13px;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .cert-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.2);
+        border-radius: 8px;
+        font-size: 12px;
+        color: #4ade80;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .cert-hours {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 8px;
+        font-size: 12px;
+        color: #93c5fd;
+        font-family: "JetBrains Mono", monospace;
+        margin-left: 8px;
+      }
+
+      /* EDUCATION */
+      #education {
+        padding: 120px 0;
+        border-top: 1px solid var(--border);
+      }
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 60px;
+      }
+      .edu-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px;
+        transition: border-color 0.3s;
+      }
+      .edu-card:hover {
+        border-color: rgba(59, 130, 246, 0.3);
+      }
+      .edu-icon {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      .edu-degree {
+        font-family: "Syne", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .edu-school {
+        font-size: 14px;
+        color: var(--blue);
+        margin-bottom: 12px;
+      }
+      .edu-detail {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* CONTACT */
+      #contact {
+        padding: 120px 0;
+        border-top: 1px solid var(--border);
+      }
+      .contact-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+        margin-top: 60px;
+      }
+      .contact-left p {
+        font-size: 16px;
+        color: var(--dim);
+        line-height: 1.8;
+        margin-bottom: 32px;
+      }
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .contact-link:hover {
+        border-color: rgba(59, 130, 246, 0.3);
+        transform: translateX(6px);
+      }
+      .cl-icon {
+        font-size: 20px;
+        width: 40px;
+      }
+      .cl-label {
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .cl-value {
+        font-size: 14px;
+        color: var(--white);
+      }
+      .contact-right {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 40px;
+      }
+      .contact-right h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+      .form-field {
+        margin-bottom: 20px;
+      }
+      .form-field label {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+      }
+      .form-field input,
+      .form-field textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px 16px;
+        color: var(--white);
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s;
+        resize: vertical;
+      }
+      .form-field input:focus,
+      .form-field textarea:focus {
+        border-color: var(--blue);
+      }
+      .form-field textarea {
+        min-height: 100px;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .footer-logo {
+        font-family: "Syne", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .footer-logo span {
+        color: var(--blue);
+      }
+      .footer-copy {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          padding: 16px 24px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .wrap {
+          padding: 0 20px;
+        }
+        .hero-inner,
+        .about-grid,
+        .contact-inner,
+        .edu-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero-visual {
+          display: none;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .timeline-item {
+          grid-template-columns: 1fr;
+        }
+        .t-date,
+        .t-line {
+          display: none;
+        }
+        footer {
+          flex-direction: column;
+          gap: 12px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">KK<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="mailto:karemkhalifaa@gmail.com" class="nav-cta">Hire me →</a>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="wrap">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-badge">Available for opportunities</div>
+            <h1 class="hero-name">
+              Kareem<br /><span class="line2">Khalifa</span>
+            </h1>
+            <p class="hero-sub">
+              Angular Front-End Developer. I build production-grade SPAs that
+              solve real problems — available for remote roles worldwide.
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn-primary">View Projects →</a>
+              <a
+                href="https://github.com/kareem-khalifa-06"
+                target="_blank"
+                class="btn-ghost"
+                >⌥ GitHub</a
+              >
+            </div>
           </div>
-          <div class="stat-row">
-            <div class="stat-item"><div class="stat-num">240+</div><div class="stat-lbl">Cert Hrs</div></div>
-            <div class="stat-item"><div class="stat-num">3</div><div class="stat-lbl">Projects</div></div>
-            <div class="stat-item"><div class="stat-num">B2</div><div class="stat-lbl">English</div></div>
+          <div
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <div class="hero-card">
+              <div class="code-block">
+                <span class="c-cm">// kareem.config.ts</span><br /><br />
+                <span class="c-kw">export const</span>
+                <span class="c-var">developer</span>
+                <span class="c-op">= {</span><br />
+                &nbsp;&nbsp;<span class="c-fn">name</span
+                ><span class="c-op">:</span>
+                <span class="c-str">"Kareem Khalifa"</span
+                ><span class="c-op">,</span><br />
+                &nbsp;&nbsp;<span class="c-fn">stack</span
+                ><span class="c-op">: [</span
+                ><span class="c-str">"Angular 17"</span
+                ><span class="c-op">,</span
+                ><span class="c-str">"TypeScript"</span
+                ><span class="c-op">,</span><span class="c-str">"RxJS"</span
+                ><span class="c-op">],</span><br />
+                &nbsp;&nbsp;<span class="c-fn">certified</span
+                ><span class="c-op">:</span>
+                <span class="c-str">"Rowad 2025 · 240h"</span
+                ><span class="c-op">,</span><br />
+                &nbsp;&nbsp;<span class="c-fn">available</span
+                ><span class="c-op">:</span>
+                <span class="c-str">"remote worldwide"</span
+                ><span class="c-op">,</span><br />
+                &nbsp;&nbsp;<span class="c-fn">status</span
+                ><span class="c-op">:</span>
+                <span class="c-str">"open_to_work"</span><br />
+                <span class="c-op">};</span>
+              </div>
+              <div class="stat-row">
+                <div class="stat-item">
+                  <div class="stat-num">240+</div>
+                  <div class="stat-lbl">Cert Hrs</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-num">3</div>
+                  <div class="stat-lbl">Projects</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-num">B2</div>
+                  <div class="stat-lbl">English</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="sec-label">// 01 — about</div>
-    <h2 class="sec-title">Engineering meets<br>the web</h2>
-    <p class="sec-sub">I bring an engineer's mindset to front-end development.</p>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm an Electronics &amp; Communications Engineering student at Cairo University who discovered a passion for building web applications. After completing the <strong style="color:var(--white)">Rowad 2025 Internship Program</strong> at Banque Misr (in partnership with Sprints) — 240+ hours of hands-on Angular training — I've been building production-grade SPAs.</p>
-        <p>My ECE foundation means I approach front-end problems differently — I think in systems, care deeply about how things connect, and never stop at "it works." I dig into <em>why</em> it works and how to make it better.</p>
-        <p>Currently building HealthSync, a multi-role healthcare SPA, and actively improving my German (A1 → A2), targeting opportunities in Europe.</p>
-        <div class="about-skills">
-          <span class="skill-chip">Angular 17</span><span class="skill-chip">TypeScript</span><span class="skill-chip">RxJS</span>
-          <span class="skill-chip">Chart.js</span><span class="skill-chip">SCSS</span><span class="skill-chip">Angular Material</span>
-          <span class="skill-chip">REST APIs</span><span class="skill-chip">Reactive Forms</span><span class="skill-chip">Git / GitHub</span>
-          <span class="skill-chip">Agile / Scrum</span><span class="skill-chip">C++</span><span class="skill-chip">Cadence Virtuoso</span>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-label">// 01 — about</div>
+        <h2 class="sec-title">Engineering meets<br />the web</h2>
+        <p class="sec-sub">
+          I bring an engineer's mindset to front-end development.
+        </p>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I'm an Angular Front-End Developer with real production
+              experience. I completed the
+              <strong style="color: var(--white)"
+                >Rowad 2025 Internship Program</strong
+              >
+              at Banque Misr — 240+ hours of hands-on Angular development inside
+              one of Egypt's largest banks — and I've been building
+              production-grade SPAs ever since.
+            </p>
+            <p>
+              My ECE foundation means I approach front-end problems differently
+              — I think in systems, care deeply about how things connect, and
+              never stop at "it works." I dig into <em>why</em> it works and how
+              to make it better.
+            </p>
+            <p>
+              Currently building HealthSync, a multi-role healthcare SPA, and
+              actively improving my German (A1 → A2), targeting opportunities in
+              Europe.
+            </p>
+            <div class="about-skills">
+              <span class="skill-chip">Angular 17</span
+              ><span class="skill-chip">TypeScript</span
+              ><span class="skill-chip">RxJS</span>
+              <span class="skill-chip">Chart.js</span
+              ><span class="skill-chip">SCSS</span
+              ><span class="skill-chip">Angular Material</span>
+              <span class="skill-chip">REST APIs</span
+              ><span class="skill-chip">Reactive Forms</span
+              ><span class="skill-chip">Red Hat Linux (RH124)</span
+              ><span class="skill-chip">Ubuntu Linux</span
+              ><span class="skill-chip">Git / GitHub</span>
+              <span class="skill-chip">Agile / Scrum</span
+              ><span class="skill-chip">C++</span
+              ><span class="skill-chip">Cadence Virtuoso</span>
+            </div>
+          </div>
+          <div class="about-right reveal">
+            <div class="info-card">
+              <h4>Quick Info</h4>
+              <div class="info-row">
+                <span class="key">Location</span
+                ><span class="val">Cairo, Egypt</span>
+              </div>
+              <div class="info-row">
+                <span class="key">University</span
+                ><span class="val">Cairo University</span>
+              </div>
+              <div class="info-row">
+                <span class="key">Degree</span
+                ><span class="val">ECE — Exp. 2028</span>
+              </div>
+              <div class="info-row">
+                <span class="key">Certified</span
+                ><span class="val" style="color: var(--blue)"
+                  >Rowad 2025 · Angular</span
+                >
+              </div>
+              <div class="info-row">
+                <span class="key">Email</span
+                ><span class="val" style="color: var(--blue)"
+                  >karemkhalifaa@gmail.com</span
+                >
+              </div>
+              <div class="info-row">
+                <span class="key">Open to</span
+                ><span class="val">Full-time remote roles</span>
+              </div>
+            </div>
+            <div class="info-card">
+              <h4>Languages</h4>
+              <div class="info-row">
+                <span class="key">Arabic</span>
+                <div class="lang-bar">
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot filled"></div>
+                  <span class="val" style="margin-left: 8px">Native</span>
+                </div>
+              </div>
+              <div class="info-row">
+                <span class="key">English</span>
+                <div class="lang-bar">
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot"></div>
+                  <span class="val" style="margin-left: 8px">B2</span>
+                </div>
+              </div>
+              <div class="info-row">
+                <span class="key">German</span>
+                <div class="lang-bar">
+                  <div class="lang-dot filled"></div>
+                  <div class="lang-dot"></div>
+                  <div class="lang-dot"></div>
+                  <div class="lang-dot"></div>
+                  <div class="lang-dot"></div>
+                  <span class="val" style="margin-left: 8px"
+                    >A1 (learning)</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="about-right reveal">
-        <div class="info-card">
-          <h4>Quick Info</h4>
-          <div class="info-row"><span class="key">Location</span><span class="val">Cairo, Egypt</span></div>
-          <div class="info-row"><span class="key">University</span><span class="val">Cairo University</span></div>
-          <div class="info-row"><span class="key">Degree</span><span class="val">ECE — Exp. 2028</span></div>
-          <div class="info-row"><span class="key">Certified</span><span class="val" style="color:var(--blue)">Rowad 2025 · Angular</span></div>
-          <div class="info-row"><span class="key">Email</span><span class="val" style="color:var(--blue)">karemkhalifaa@gmail.com</span></div>
-          <div class="info-row"><span class="key">Open to</span><span class="val">Internships &amp; Junior roles</span></div>
-        </div>
-        <div class="info-card">
-          <h4>Languages</h4>
-          <div class="info-row"><span class="key">Arabic</span><div class="lang-bar"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><span class="val" style="margin-left:8px">Native</span></div></div>
-          <div class="info-row"><span class="key">English</span><div class="lang-bar"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div><span class="val" style="margin-left:8px">B2</span></div></div>
-          <div class="info-row"><span class="key">German</span><div class="lang-bar"><div class="lang-dot filled"></div><div class="lang-dot"></div><div class="lang-dot"></div><div class="lang-dot"></div><div class="lang-dot"></div><span class="val" style="margin-left:8px">A1 (learning)</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="wrap">
-    <div class="sec-label">// 02 — projects</div>
-    <h2 class="sec-title">Things I've built</h2>
-    <p class="sec-sub">Real-world applications, not toy projects.</p>
-    <div class="projects-grid">
-      <div class="project-card p1 reveal">
-        <div class="proj-icon">🏥</div>
-        <div class="proj-status status-build">In Progress</div>
-        <h3 class="proj-title">HealthSync</h3>
-        <p class="proj-desc">Multi-role healthcare SPA (Admin, Doctor, Patient, Receptionist). Lazy-loaded modules, role-based guards, RxJS data flows, appointment scheduling with conflict detection, Chart.js analytics, JSON Server mock backend with 300+ records.</p>
-        <div class="proj-tags"><span class="proj-tag">Angular 17</span><span class="proj-tag">RxJS</span><span class="proj-tag">Chart.js</span><span class="proj-tag">JSON Server</span><span class="proj-tag">SCSS</span><span class="proj-tag">dayjs</span></div>
-        <div class="proj-links">
-          <a href="https://github.com/kareem-khalifa-06" target="_blank" class="proj-link pl-code">⌥ Code</a>
-          <a href="https://health-sync-taupe-eight.vercel.app/" class="proj-link pl-demo">Live Demo →</a>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="sec-label">// 02 — projects</div>
+        <h2 class="sec-title">Things I've built</h2>
+        <p class="sec-sub">Real-world applications, not toy projects.</p>
+        <div class="projects-grid">
+          <div class="project-card p1 reveal">
+            <div class="proj-icon">🏥</div>
+            <div class="proj-status status-build">In Progress</div>
+            <h3 class="proj-title">HealthSync</h3>
+            <p class="proj-desc">
+              Multi-role healthcare SPA (Admin, Doctor, Patient, Receptionist).
+              Lazy-loaded modules, role-based guards, RxJS data flows,
+              appointment scheduling with conflict detection, Chart.js
+              analytics, JSON Server mock backend with 300+ records.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Angular 17</span
+              ><span class="proj-tag">RxJS</span
+              ><span class="proj-tag">Chart.js</span
+              ><span class="proj-tag">JSON Server</span
+              ><span class="proj-tag">SCSS</span
+              ><span class="proj-tag">dayjs</span>
+            </div>
+            <div class="proj-links">
+              <a
+                href="https://github.com/kareem-khalifa-06"
+                target="_blank"
+                class="proj-link pl-code"
+                >⌥ Code</a
+              >
+              <a href="#" class="proj-link pl-demo">Live Demo →</a>
+            </div>
+          </div>
+          <div class="project-card p2 reveal">
+            <div class="proj-icon">🏦</div>
+            <div class="proj-status status-live">Live on Vercel</div>
+            <h3 class="proj-title">Secure Bank</h3>
+            <p class="proj-desc">
+              Client-side banking system with account management, real-time
+              transaction history, fund transfers, and loan tracking. Built with
+              strict separation of concerns — no framework, pure TypeScript OOP.
+              Publicly deployed on Vercel.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">TypeScript</span
+              ><span class="proj-tag">HTML5</span
+              ><span class="proj-tag">CSS3</span
+              ><span class="proj-tag">OOP</span
+              ><span class="proj-tag">Vercel</span>
+            </div>
+            <div class="proj-links">
+              <a
+                href="https://github.com/kareem-khalifa-06/Secure-Bank"
+                target="_blank"
+                class="proj-link pl-code"
+                >⌥ Code</a
+              >
+              <a
+                href="https://secure-bank-ipwcpmwfv-kareem-khalifa-06s-projects.vercel.app/"
+                target="_blank"
+                class="proj-link pl-demo"
+                >Live Demo →</a
+              >
+            </div>
+          </div>
+          <div class="project-card p3 reveal">
+            <div class="proj-icon">⚡</div>
+            <div class="proj-status status-live">Completed</div>
+            <h3 class="proj-title">Transistor-Level Perceptron</h3>
+            <p class="proj-desc">
+              Full perceptron hierarchy at transistor level in Cadence Virtuoso
+              (45 nm). NAND2 → XOR → MUX → Full Adder → Barrel Shifter →
+              Perceptron. Passed DRC/LVS verification.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Cadence Virtuoso</span
+              ><span class="proj-tag">VLSI</span
+              ><span class="proj-tag">45 nm</span
+              ><span class="proj-tag">DRC/LVS</span>
+            </div>
+            <div class="proj-links">
+              <a href="mailto:karemkhalifaa@gmail.com" class="proj-link pl-code"
+                >Request Report</a
+              >
+              <a href="mailto:karemkhalifaa@gmail.com" class="proj-link pl-demo"
+                >Contact →</a
+              >
+            </div>
+          </div>
         </div>
       </div>
-      <div class="project-card p2 reveal">
-        <div class="proj-icon">🏦</div>
-        <div class="proj-status status-live">Live on Vercel</div>
-        <h3 class="proj-title">Secure Bank</h3>
-        <p class="proj-desc">Client-side banking system with account management, real-time transaction history, fund transfers, and loan tracking. Built with strict separation of concerns — no framework, pure TypeScript OOP. Publicly deployed on Vercel.</p>
-        <div class="proj-tags"><span class="proj-tag">TypeScript</span><span class="proj-tag">HTML5</span><span class="proj-tag">CSS3</span><span class="proj-tag">OOP</span><span class="proj-tag">Vercel</span></div>
-        <div class="proj-links">
-          <a href="https://github.com/kareem-khalifa-06/Secure-Bank" target="_blank" class="proj-link pl-code">⌥ Code</a>
-          <a href="https://secure-bank-lac.vercel.app/" target="_blank" class="proj-link pl-demo">Live Demo →</a>
-        </div>
-      </div>
-      <div class="project-card p3 reveal">
-        <div class="proj-icon">⚡</div>
-        <div class="proj-status status-live">Completed</div>
-        <h3 class="proj-title">Transistor-Level Perceptron</h3>
-        <p class="proj-desc">Full perceptron hierarchy at transistor level in Cadence Virtuoso (45 nm). NAND2 → XOR → MUX → Full Adder → Barrel Shifter → Perceptron. Passed DRC/LVS verification.</p>
-        <div class="proj-tags"><span class="proj-tag">Cadence Virtuoso</span><span class="proj-tag">VLSI</span><span class="proj-tag">45 nm</span><span class="proj-tag">DRC/LVS</span></div>
-        <div class="proj-links">
-          <a href="mailto:karemkhalifaa@gmail.com" class="proj-link pl-code">Request Report</a>
-          <a href="mailto:karemkhalifaa@gmail.com" class="proj-link pl-demo">Contact →</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="wrap">
-    <div class="sec-label">// 03 — certifications</div>
-    <h2 class="sec-title">Certified &amp; verified</h2>
-    <p class="sec-sub">Formal recognition from industry partners.</p>
-    <div class="cert-grid">
-      <div class="cert-card reveal">
-        <div class="cert-logo">🏆</div>
-        <div class="cert-issuer">Banque Misr × Sprints</div>
-        <div class="cert-name">Front-End Development with Angular</div>
-        <div class="cert-meta">Rowad 2025 Internship Program  ·  Sep 2025  ·  ID: SPR-35Y7K2</div>
-        <div>
-          <span class="cert-badge">✓ Verified</span>
-          <span class="cert-hours">⏱ 240+ hours</span>
+    <!-- CERTIFICATIONS — NEW -->
+    <section id="certifications">
+      <div class="wrap">
+        <div class="sec-label">// 03 — certifications</div>
+        <h2 class="sec-title">Certified &amp; verified</h2>
+        <p class="sec-sub">Formal recognition from industry partners.</p>
+        <div class="cert-grid">
+          <div class="cert-card reveal">
+            <div class="cert-logo">🐧</div>
+            <div class="cert-issuer">Mahara-Tech / ITI Platform</div>
+            <div class="cert-name">Red Hat System Administration I (RH124)</div>
+            <div class="cert-meta">
+              Aug 2026 · Verification: GqAaVPkZq4 · 9h 11min
+            </div>
+            <div>
+              <span class="cert-badge">✓ Verified</span>
+              <span class="cert-hours">⚙ Enterprise Linux</span>
+            </div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-logo">🐧</div>
+            <div class="cert-issuer">Mahara-Tech / ITI Platform</div>
+            <div class="cert-name">Ubuntu Linux Essentials</div>
+            <div class="cert-meta">
+              Jul 2026 · Verification: pztGG6NhEq · 7h 20min
+            </div>
+            <div>
+              <span class="cert-badge">✓ Verified</span>
+              <span class="cert-hours">⏱ 7+ hours</span>
+            </div>
+          </div>
+          <div class="cert-card reveal">
+            <div class="cert-logo">🏆</div>
+            <div class="cert-issuer">Banque Misr × Sprints</div>
+            <div class="cert-name">Front-End Development with Angular</div>
+            <div class="cert-meta">
+              Rowad 2025 Internship Program · Sep 2025 · ID: SPR-35Y7K2
+            </div>
+            <div>
+              <span class="cert-badge">✓ Verified</span>
+              <span class="cert-hours">⏱ 240+ hours</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="wrap">
-    <div class="sec-label">// 04 — experience</div>
-    <h2 class="sec-title">Where I've worked</h2>
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="t-date">Jul – Sep 2025</div>
-        <div class="t-line"><div class="t-dot"></div><div class="t-track"></div></div>
-        <div class="t-body">
-          <div class="t-company">Banque Misr</div>
-          <div class="t-role">Front-End Development Intern · Rowad 2025 Program</div>
-          <div class="t-sub">Banque Misr × Sprints  ·  Cairo, Egypt  ·  240+ hrs  ·  Cert ID: SPR-35Y7K2</div>
-          <ul class="t-desc">
-            <li>Built and maintained Angular 15 components for a production banking SPA across 3 sprint cycles.</li>
-            <li>Integrated RESTful APIs using HTTP Client and RxJS (switchMap, forkJoin, combineLatest).</li>
-            <li>Implemented reactive forms with multi-layer validation; reduced defect reports in sprint reviews.</li>
-            <li>Applied Git branching strategies and participated in peer code reviews.</li>
-            <li>Managed lifecycle hooks to eliminate memory leaks and UI rendering bugs.</li>
-          </ul>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="sec-label">// 04 — experience</div>
+        <h2 class="sec-title">Where I've worked</h2>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="t-date">2026</div>
+            <div class="t-line">
+              <div class="t-dot"></div>
+              <div class="t-track"></div>
+            </div>
+            <div class="t-body">
+              <div class="t-company">Avidbeam</div>
+              <div class="t-role">Engineering Intern</div>
+              <ul class="t-desc">
+                <li>
+                  Engineering internship — details to be updated upon
+                  completion.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="t-date">Jul – Sep 2025</div>
+            <div class="t-line">
+              <div class="t-dot"></div>
+              <div class="t-track"></div>
+            </div>
+            <div class="t-body">
+              <div class="t-company">Banque Misr</div>
+              <div class="t-role">
+                Front-End Development Intern · Rowad 2025 Program
+              </div>
+              <div class="t-sub">
+                Banque Misr × Sprints · Cairo, Egypt · 240+ hrs · Cert ID:
+                SPR-35Y7K2
+              </div>
+              <ul class="t-desc">
+                <li>
+                  Built and maintained Angular 15 components for a production
+                  banking SPA across 3 sprint cycles.
+                </li>
+                <li>
+                  Integrated RESTful APIs using HTTP Client and RxJS (switchMap,
+                  forkJoin, combineLatest).
+                </li>
+                <li>
+                  Implemented reactive forms with multi-layer validation;
+                  reduced defect reports in sprint reviews.
+                </li>
+                <li>
+                  Applied Git branching strategies and participated in peer code
+                  reviews.
+                </li>
+                <li>
+                  Managed lifecycle hooks to eliminate memory leaks and UI
+                  rendering bugs.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="t-date">2025 – Present</div>
+            <div class="t-line">
+              <div class="t-dot"></div>
+              <div class="t-track"></div>
+            </div>
+            <div class="t-body">
+              <div class="t-company">HealthSync Project</div>
+              <div class="t-role">
+                Solo Full-Stack — Angular 17 + JSON Server
+              </div>
+              <ul class="t-desc">
+                <li>
+                  Architecting a multi-role healthcare SPA using production
+                  Angular patterns.
+                </li>
+                <li>
+                  Implementing complex RxJS patterns for real-time dashboard
+                  data.
+                </li>
+                <li>Building comprehensive features across 4 user roles.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="timeline-item reveal">
-        <div class="t-date">2025 – Present</div>
-        <div class="t-line"><div class="t-dot"></div><div class="t-track"></div></div>
-        <div class="t-body">
-          <div class="t-company">HealthSync Project</div>
-          <div class="t-role">Solo Full-Stack — Angular 17 + JSON Server</div>
-          <ul class="t-desc">
-            <li>Architecting a multi-role healthcare SPA using production Angular patterns.</li>
-            <li>Implementing complex RxJS patterns for real-time dashboard data.</li>
-            <li>Building comprehensive features across 4 user roles.</li>
-          </ul>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="wrap">
+        <div class="sec-label">// 05 — education</div>
+        <h2 class="sec-title">Academic background</h2>
+        <div class="edu-grid">
+          <div class="edu-card reveal">
+            <div class="edu-icon">🎓</div>
+            <div class="edu-degree">
+              B.Sc. Electronics &amp; Communications Engineering
+            </div>
+            <div class="edu-school">
+              Cairo University — Faculty of Engineering
+            </div>
+            <div class="edu-detail">
+              Expected January 2028<br /><br />Courses: Digital IC Design,
+              Signal Processing, Communications, Embedded Systems, Data
+              Structures, Probability Theory
+            </div>
+          </div>
+          <div class="edu-card reveal">
+            <div class="edu-icon">⚡</div>
+            <div class="edu-degree">The Complete Guide to Angular</div>
+            <div class="edu-school">
+              Udemy · Maximilian Schwarzmüller · ~36 hours
+            </div>
+            <div class="edu-detail">
+              Completed 2025<br /><br />Angular 2 → 17: components, directives,
+              RxJS, routing, reactive forms, HTTP, NgRx, standalone components
+            </div>
+          </div>
+          <div class="edu-card reveal">
+            <div class="edu-icon">🌐</div>
+            <div class="edu-degree">The Complete Web Development Bootcamp</div>
+            <div class="edu-school">Udemy · Dr. Angela Yu · ~65 hours</div>
+            <div class="edu-detail">
+              Completed 2025<br /><br />HTML5, CSS3, JavaScript ES6+, Node.js,
+              Express, MongoDB, React, RESTful API design
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- EDUCATION -->
-<section id="education">
-  <div class="wrap">
-    <div class="sec-label">// 05 — education</div>
-    <h2 class="sec-title">Academic background</h2>
-    <div class="edu-grid">
-      <div class="edu-card reveal">
-        <div class="edu-icon">🎓</div>
-        <div class="edu-degree">B.Sc. Electronics &amp; Communications Engineering</div>
-        <div class="edu-school">Cairo University — Faculty of Engineering</div>
-        <div class="edu-detail">Expected January 2028<br><br>Courses: Digital IC Design, Signal Processing, Communications, Embedded Systems, Data Structures, Probability Theory</div>
-      </div>
-      <div class="edu-card reveal">
-        <div class="edu-icon">⚡</div>
-        <div class="edu-degree">The Complete Guide to Angular</div>
-        <div class="edu-school">Udemy · Maximilian Schwarzmüller · ~36 hours</div>
-        <div class="edu-detail">Completed 2025<br><br>Angular 2 → 17: components, directives, RxJS, routing, reactive forms, HTTP, NgRx, standalone components</div>
-      </div>
-      <div class="edu-card reveal">
-        <div class="edu-icon">🌐</div>
-        <div class="edu-degree">The Complete Web Development Bootcamp</div>
-        <div class="edu-school">Udemy · Dr. Angela Yu · ~65 hours</div>
-        <div class="edu-detail">Completed 2025<br><br>HTML5, CSS3, JavaScript ES6+, Node.js</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="sec-label">// 06 — contact</div>
-    <h2 class="sec-title">Let's talk</h2>
-    <p class="sec-sub">Open to internships, junior roles, and remote opportunities.</p>
-    <div class="contact-inner">
-      <div class="contact-left reveal">
-        <p>Whether you're looking for a certified Angular developer with an engineering background, or want to discuss a project — I'd love to hear from you. Actively seeking opportunities in Europe (Hungary, Germany) and remote positions.</p>
-        <div class="contact-links">
-          <a href="mailto:karemkhalifaa@gmail.com" class="contact-link"><span class="cl-icon">✉️</span><div><div class="cl-label">Email</div><div class="cl-value">karemkhalifaa@gmail.com</div></div></a>
-          <a href="tel:+201090222247" class="contact-link"><span class="cl-icon">📱</span><div><div class="cl-label">Phone</div><div class="cl-value">+20 109 022 2247</div></div></a>
-          <a href="https://github.com/kareem-khalifa-06" target="_blank" class="contact-link"><span class="cl-icon">💻</span><div><div class="cl-label">GitHub</div><div class="cl-value">github.com/kareem-khalifa-06</div></div></a>
-          <a href="https://www.linkedin.com/in/kareem-khalifa-8497652b3/" target="_blank" class="contact-link"><span class="cl-icon">💼</span><div><div class="cl-label">LinkedIn</div><div class="cl-value">linkedin.com/in/kareem-khalifa</div></div></a>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="sec-label">// 06 — contact</div>
+        <h2 class="sec-title">Let's talk</h2>
+        <p class="sec-sub">
+          Open to internships, junior roles, and remote opportunities.
+        </p>
+        <div class="contact-inner">
+          <div class="contact-left reveal">
+            <p>
+              Whether you're looking for a certified Angular developer or want
+              to discuss a project — I'd love to hear from you. Available
+              immediately for full-time remote roles. Also open to on-site
+              opportunities in Europe (Hungary, Germany).
+            </p>
+            <div class="contact-links">
+              <a href="mailto:karemkhalifaa@gmail.com" class="contact-link"
+                ><span class="cl-icon">✉️</span>
+                <div>
+                  <div class="cl-label">Email</div>
+                  <div class="cl-value">karemkhalifaa@gmail.com</div>
+                </div></a
+              >
+              <a href="tel:+201090222247" class="contact-link"
+                ><span class="cl-icon">📱</span>
+                <div>
+                  <div class="cl-label">Phone</div>
+                  <div class="cl-value">+20 109 022 2247</div>
+                </div></a
+              >
+              <a
+                href="https://github.com/kareem-khalifa-06"
+                target="_blank"
+                class="contact-link"
+                ><span class="cl-icon">💻</span>
+                <div>
+                  <div class="cl-label">GitHub</div>
+                  <div class="cl-value">github.com/kareem-khalifa-06</div>
+                </div></a
+              >
+              <a
+                href="https://linkedin.com/in/kareem-khalifa"
+                target="_blank"
+                class="contact-link"
+                ><span class="cl-icon">💼</span>
+                <div>
+                  <div class="cl-label">LinkedIn</div>
+                  <div class="cl-value">linkedin.com/in/kareem-khalifa</div>
+                </div></a
+              >
+            </div>
+          </div>
+          <div class="contact-right reveal">
+            <h3>Send a message</h3>
+            <div class="form-field">
+              <label>Your Name</label
+              ><input type="text" placeholder="John Doe" />
+            </div>
+            <div class="form-field">
+              <label>Email</label
+              ><input type="email" placeholder="you@company.com" />
+            </div>
+            <div class="form-field">
+              <label>Message</label
+              ><textarea
+                placeholder="Tell me about the opportunity..."
+              ></textarea>
+            </div>
+            <button
+              class="btn-primary"
+              style="width: 100%; justify-content: center"
+              onclick="window.location = 'mailto:karemkhalifaa@gmail.com'"
+            >
+              Send Message →
+            </button>
+          </div>
         </div>
       </div>
-      <div class="contact-right reveal">
-        <h3>Send a message</h3>
-        <div class="form-field"><label>Your Name</label><input type="text" placeholder="John Doe"></div>
-        <div class="form-field"><label>Email</label><input type="email" placeholder="you@company.com"></div>
-        <div class="form-field"><label>Message</label><textarea placeholder="Tell me about the opportunity..."></textarea></div>
-        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="window.location='mailto:karemkhalifaa@gmail.com'">Send Message →</button>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>
-  <div class="footer-logo">KK<span>.</span></div>
-  <div class="footer-copy">© 2026 Kareem Khalifa — Built from scratch</div>
-  <a href="https://github.com/kareem-khalifa-06" target="_blank" style="color:var(--muted);font-size:13px;text-decoration:none;">GitHub ↗</a>
-</footer>
-<script src="index.js"></script>
-</body>
+    <footer>
+      <div class="footer-logo">KK<span>.</span></div>
+      <div class="footer-copy">© 2026 Kareem Khalifa — Built from scratch</div>
+      <a
+        href="https://github.com/kareem-khalifa-06"
+        target="_blank"
+        style="color: var(--muted); font-size: 13px; text-decoration: none"
+        >GitHub ↗</a
+      >
+    </footer>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) =>
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          }),
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((s) => {
+          if (window.scrollY >= s.offsetTop - 200) current = s.id;
+        });
+        navLinks.forEach((a) => {
+          a.style.color =
+            a.getAttribute("href") === "#" + current ? "var(--white)" : "";
+        });
+      });
+    </script>
+  </body>
 </html>
